@@ -1,0 +1,29 @@
+<div class="container-fluid" style="background-color: #2c7dda;">
+<h6 style="color: yellow">
+<p>conversion works!</p>
+montant : <input type= "text" [(ngModel)] = "montant" /><br/>
+
+    monnaieSource : <select [(ngModel)] = "codeMonnaieSource">
+        <option *ngFor = "let d of listeDevises">{{d.code}}</option>
+    </select><br/>
+
+    monnaieCible : <select [(ngModel)] = "codeMonnaieCible">
+        <option *ngFor = "let d of listeDevises">{{d.code}}</option>
+    </select><br/>
+
+    <input type="button" (click) = "calculerConversion()" value="convertir"/><br/>
+
+    <div class="error"> {{errorMsg}}</div>
+
+     resultat = {{resultat}}</h6>
+    <hr/>
+    <table border="1" >
+        <h6 style="color: yellow">
+        <tr><th>code</th> <th>monnaie</th> <th>change</th></tr> 
+            <tr *ngFor = "let d of listeDevises">
+                <td>{{d.code}}</td> 
+                <td>{{d.name}}</td> 
+                <td>{{d.change}}</td>
+        </tr></h6>
+    </table><br/><br/>
+</div>

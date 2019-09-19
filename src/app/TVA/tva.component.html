@@ -1,0 +1,17 @@
+<div class="container-fluid" style="background-color: #2c7dda;">
+    <tabset>
+        <h6 style="color: yellow"><p>TVA Calcul Works!</p></h6><br/>
+
+        <h6 style="color: yellow">HT</h6> :<input type="text" [(ngModel)]="ht" (input)="calculer()" /> <br/><br/><br/>
+
+        <h6 style="color: yellow">taux</h6>:<select style="color: red" [(ngModel)] ="taux" (change)="calculer()"><br/><br/><br/>
+            <option>5</option>
+            <option>10</option>
+            <option>20</option>
+        </select> <br/><br/><br/>
+
+        <h6 style="color: yellow">tva = {{tva | number : '1.0-2'}}</h6><br/><br/><br/>
+        
+        <h6 style="color: yellow">ttc = {{ttc | number : '1.0-2'}}</h6><br/><br/><br/>
+    </tabset>
+</div>

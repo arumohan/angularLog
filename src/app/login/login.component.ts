@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Personne } from '../personne';
 import { LoginService } from '../Common/service/login.service';
+import { LoginResponse } from '../Common/data/loginResponse';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     this.loginService.verifierAuth(
       this.p.username, this.p.password, "admin")
     .subscribe(
-      (responseObject:object) => {this.message = responseObject['message'];
+      (responseObject:LoginResponse) => {this.message = responseObject.message;
+      //(responseObject:LoginResponse) => {this.message = responseObject['message'];
       /*this.message = JSON.stringify(responseObject); */},
       (err) => {console.log(err); this.message = err.message}
     );

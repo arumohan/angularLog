@@ -16,7 +16,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { TvaComponent } from './tva/tva.component'; 
 import { BsUtilModule } from 'src/bs-util/bs-util.module';
 import { ConversionComponent } from './conversion/conversion.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AdminDeviseComponent } from './admin-devise/admin-devise.component';
+import { MyAuthInterceptor } from './Common/monIntercepteur';
+import { ProductsComponent } from './products/products.component';
+import { ListProdComponent } from './products/list-prod/list-prod.component';
 //import { HttpClient } from 'selenium-webdriver/http';
 
 @NgModule({
@@ -29,7 +33,10 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     WelcomeComponent,
     TvaComponent,
-    ConversionComponent,   
+    ConversionComponent,
+    AdminDeviseComponent,
+    ProductsComponent,
+    ListProdComponent,   
   ],
 
   imports: [
@@ -41,7 +48,10 @@ import { HttpClientModule } from '@angular/common/http';
     BsUtilModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS,    
+    useClass: MyAuthInterceptor,    
+    multi: true  }],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

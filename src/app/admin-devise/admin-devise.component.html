@@ -1,0 +1,10 @@
+<p>admin-devise works!</p>
+<select [(ngModel)] = "selectedDevise" size = "10">
+    <option *ngFor = "let d of devises" [ngValue] = "d"> 
+        {{d.code}} {{d.name}} {{d.change}}
+    </option>
+</select>
+
+<input type="button" value="Supprimer Devise"
+    (click) = "onSupprimer()" /> <br/>
+    {{message}}

@@ -1,0 +1,7 @@
+<h1><p>products works!</p></h1>
+<ul>
+    <li *ngFor="let c of categories"
+    (click)="onNavigate(c)">{{c}}</li>
+</ul>
+<router-outlet></router-outlet><!-- Sous niveau de commposant 
+                                variable (selon fin des urls-->
